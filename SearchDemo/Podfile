@@ -18,7 +18,7 @@ source 'https://github.com/nanorepsdk/NRSDK-specs.git'
 #source 'https://github.com/nanorepsdk/NRSDK-Dev-specs.git'
 source 'https://github.com/CocoaPods/Specs'
 
-target 'ConversationDemo' do
+target 'SearchDemo' do
     if defined? NR_LOCAL 
         pod 'NanorepEngine', :path => NR_ENGINE
         pod 'NRAccessibility', :path => NR_ACCESSIBILITY

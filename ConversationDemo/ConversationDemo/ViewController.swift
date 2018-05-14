@@ -5,8 +5,9 @@
 // ===================================================================================================
 
 import UIKit
+import NanorepUI
 
-class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationContentHandler, NRCustomContentHandler, HistoryProvider {
+class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationContentHandler,  HistoryProvider {
     
     private let accountParams = AccountParams()
     
@@ -16,9 +17,9 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.accountParams.account = "{account_name}"
-        self.accountParams.knowledgeBase = "{knowledge_base}"
-        self.accountParams.apiKey = "{api_key}"
+        self.accountParams.account = "jio"
+        self.accountParams.knowledgeBase = "Staging"
+        self.accountParams.apiKey = "8bad6dea-8da4-4679-a23f-b10e62c84de8"
     }
     
     var controller: NRConversationalViewController!
@@ -26,7 +27,7 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     @IBAction func loadNanorep(_ sender: UIButton) {
         // Set config
         let config: NRBotConfiguration = NRBotConfiguration()
-        config.chatContentURL = URL(string:"{content_url}")
+        config.chatContentURL = URL(string:"https://cdn-customers.nanorep.com/v2/view-rbs.html")
         config.withNavBar = true
         // Create NRConversationalViewController
         controller = NRConversationalViewController(accountParams: self.accountParams)
@@ -40,7 +41,7 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     func setHandlers() {
         controller.delegate = self
         controller.historyProvider = self
-        controller.customChatContentHandler = self
+//        controller.customChatContentHandler = self
         controller.applicationContentHandler = self
     }
     
