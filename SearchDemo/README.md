@@ -1,14 +1,12 @@
-# NanorepUI
-Nanorep Widget SDK
 
-##How to implement Nanorep SDK:
+## How to implement Nanorep SDK:
 
 1. Run `pod install`/ `pod update`
 2. Open generated `.xcworkspace` file with Xcode
 3. Run on simulator or device.
 
 
-##How to use the SDK:
+## How to use the SDK:
 If you are using swift you will need to add `Bridging-Header` you can learn about it here:
 [Bridging header](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
 
