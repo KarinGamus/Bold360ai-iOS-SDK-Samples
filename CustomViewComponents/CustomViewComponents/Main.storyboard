@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RMP-E6-scw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Vodafone's Controller-->
+        <scene sceneID="pAl-zJ-Csh">
+            <objects>
+                <tableViewController id="DIN-33-u5t" customClass="ViewController" customModule="VodafoneDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nex-N1-tt9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kpp-Y0-pnI" customClass="VFLabelTableViewCell" customModule="VodafoneDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kpp-Y0-pnI" id="DA4-LZ-pli">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hG3-Do-FtE">
+                                            <rect key="frame" x="8" y="10" width="25" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="hG3-Do-FtE" secondAttribute="height" multiplier="1:1" id="Oeb-Vo-ZbI"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL9-FC-v69">
+                                            <rect key="frame" x="52" y="12" width="308" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gL9-FC-v69" firstAttribute="leading" secondItem="hG3-Do-FtE" secondAttribute="trailing" constant="19" id="4v6-xn-can"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="hG3-Do-FtE" firstAttribute="top" secondItem="kpp-Y0-pnI" secondAttribute="top" constant="10" id="7cd-5M-t9I"/>
+                                    <constraint firstAttribute="trailing" secondItem="gL9-FC-v69" secondAttribute="trailing" constant="15" id="JVV-uR-TXT"/>
+                                    <constraint firstAttribute="bottom" secondItem="hG3-Do-FtE" secondAttribute="bottom" constant="9" id="TvI-bY-J1v"/>
+                                    <constraint firstItem="hG3-Do-FtE" firstAttribute="leading" secondItem="kpp-Y0-pnI" secondAttribute="leading" constant="8" id="eAw-Bz-p80"/>
+                                    <constraint firstItem="gL9-FC-v69" firstAttribute="centerY" secondItem="kpp-Y0-pnI" secondAttribute="centerY" id="sVt-6D-Co0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="icon" destination="hG3-Do-FtE" id="O4p-hF-6tk"/>
+                                    <outlet property="labelName" destination="gL9-FC-v69" id="FBk-3c-W6h"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DIN-33-u5t" id="uOQ-Fl-bqG"/>
+                            <outlet property="delegate" destination="DIN-33-u5t" id="wvP-eF-Vdh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Vodafone's Controller" id="BUq-HY-GOM">
+                        <barButtonItem key="rightBarButtonItem" title="Default" id="UBD-0p-LXZ">
+                            <connections>
+                                <action selector="toggleCustomViews:" destination="DIN-33-u5t" id="ZNZ-Gg-VMB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSC-ze-APF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="189.3553223388306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GKZ-Aw-nDp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RMP-E6-scw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NH3-os-Uam">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DIN-33-u5t" kind="relationship" relationship="rootViewController" id="RMQ-ay-Bsz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8MY-Zy-th5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="344.80000000000001" y="189.3553223388306"/>
+        </scene>
+    </scenes>
+</document>

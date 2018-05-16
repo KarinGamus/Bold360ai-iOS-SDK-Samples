@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Account, bill and top up",
+        "id": "915128172",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/1/account.png"
+    },
+    {
+        "name": "Getting started and upgrading",
+        "id": "915128162",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/2/lost.png"
+    },
+    {
+        "name": "Using our network",
+        "id": "915128202",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/1/account.png"
+    },
+    {
+        "name": "Account, bill and top up",
+        "id": "915128172",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/3/broadband.png"
+    },
+    {
+        "name": "Device Guides",
+        "id": "48655641",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/4/devices.png"
+    },
+    {
+        "name": "Vodafone apps",
+        "id": "915128192",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/5/connectivity.png"
+    },
+    {
+        "name": "Vodafone products and services",
+        "id": "915128212",
+        "icon": "https://nr1.s3.amazonaws.com/kb/2404849/35B2AB28/36ABF3EA/6/travelling.png"
+    }
+]
