@@ -1,6 +1,6 @@
 ## NRSDK iOS Samples
 
-This project hosts samples for the [NRSDK -  Nanorep SDK](https://github.com/nanorepsdk/NanorepUI/wiki)
+This project hosts samples for the [Bold360AI iOS SDK](https://github.com/nanorepsdk/Bold360AI-iOS-SDK)
 
 **Every sample contains 2 targets:**
 1. Objc Sample
