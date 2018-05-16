@@ -1,4 +1,4 @@
-## NRSDK iOS Samples
+## Bold360AI iOS SDK Samples
 
 This project hosts samples for the [Bold360AI iOS SDK](https://github.com/nanorepsdk/Bold360AI-iOS-SDK)
 
