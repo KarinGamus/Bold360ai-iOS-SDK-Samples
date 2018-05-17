@@ -17,9 +17,9 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.accountParams.account = "jio"
-        self.accountParams.knowledgeBase = "Staging"
-        self.accountParams.apiKey = "8bad6dea-8da4-4679-a23f-b10e62c84de8"
+        self.accountParams.account = ""
+        self.accountParams.knowledgeBase = ""
+        self.accountParams.apiKey = ""
     }
     
     var controller: NRConversationalViewController!
@@ -27,7 +27,7 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     @IBAction func loadNanorep(_ sender: UIButton) {
         // Set config
         let config: NRBotConfiguration = NRBotConfiguration()
-        config.chatContentURL = URL(string:"https://cdn-customers.nanorep.com/v2/view-rbs.html")
+        config.chatContentURL = URL(string:"")
         config.withNavBar = true
         // Create NRConversationalViewController
         controller = NRConversationalViewController(accountParams: self.accountParams)
