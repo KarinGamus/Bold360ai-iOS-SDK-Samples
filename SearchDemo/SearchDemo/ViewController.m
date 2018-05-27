@@ -1,11 +1,13 @@
-// ===================================================================================================
-// Copyright © 2018 nanorep.
-// NanorepUI SDK.
-// All rights reserved.
-// ===================================================================================================
+//
+//  ViewController.m
+//  DayTwoDemo
+//
+//  Created by Nissim Pardo on 05/11/2017.
+//  Copyright © 2017 nanorep. All rights reserved.
+//
 
 #import "ViewController.h"
-#import "NanorepUI.h"
+#import <NanorepUI/NanorepUI.h>
 
 @interface ViewController () <NanorepPersonalInfoHandler, UITextFieldDelegate, NRApplicationContentHandler, NRReadMoreViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *kbTF;
@@ -34,6 +36,7 @@
 
 
 - (IBAction)loadNanorep:(UIButton *)sender {
+    [self.view endEditing:YES];
     AccountParams *account = [AccountParams new];
     account.account = _accountTF.text;
     account.knowledgeBase = _kbTF.text;
@@ -45,10 +48,18 @@
         if (err) {
             NSLog(@"ERROR ::%@", err);
         } else {
+            config.useLabels = YES;
             dispatch_async(dispatch_get_main_queue(), ^{
                 weakSelf.widgetController = [NRWidgetViewController new];
                 weakSelf.widgetController.infoHandler = weakSelf;
-                [weakSelf presentViewController:weakSelf.widgetController animated:YES completion:nil];
+                weakSelf.widgetController.view.frame = (CGRect){CGPointZero, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height - 44.0};
+                [weakSelf addChildViewController:weakSelf.widgetController];
+                [weakSelf.view addSubview:weakSelf.widgetController.view];
+//                weakSelf.widgetController.disableNavigation = NO;
+//                weakSelf.widgetController.navBarEmbedded = YES;
+//                weakSelf.widgetController.tabBarEmbedded = YES;
+//                [weakSelf.navigationController pushViewController:weakSelf.widgetController animated:YES];
+//                [weakSelf presentViewController:weakSelf.widgetController animated:YES completion:nil];
             });
         }
     };
