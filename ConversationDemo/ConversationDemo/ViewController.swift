@@ -27,7 +27,7 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     @IBAction func loadNanorep(_ sender: UIButton) {
         // Set config
         let config: NRBotConfiguration = NRBotConfiguration()
-        config.chatContentURL = URL(string:"")
+        config.chatContentURL = URL(string:"https://cdn-customers.nanorep.com/v2/view-default.html")
         config.withNavBar = true
         // Create NRConversationalViewController
         controller = NRConversationalViewController(accountParams: self.accountParams)
