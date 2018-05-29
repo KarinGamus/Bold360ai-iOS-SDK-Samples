@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48588E8C20BAD386007B53A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48588E8B20BAD386007B53A6 /* ViewController.m */; };
 		5F80AD441FBB00BB00EE46AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F80AD431FBB00BB00EE46AC /* AppDelegate.m */; };
 		5F80AD4C1FBB00BB00EE46AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F80AD4B1FBB00BB00EE46AC /* Assets.xcassets */; };
 		5F80AD4F1FBB00BB00EE46AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F80AD4D1FBB00BB00EE46AC /* LaunchScreen.storyboard */; };
 		5F80AD521FBB00BB00EE46AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F80AD511FBB00BB00EE46AC /* main.m */; };
 		5F80AD591FBB00D800EE46AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F80AD581FBB00D800EE46AC /* Main.storyboard */; };
-		5F80AD5B1FBB00E400EE46AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F80AD5A1FBB00E400EE46AC /* ViewController.m */; };
 		EF6AACCA1325517EA8B2F3DC /* Pods_SearchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139DB299896EDE9128C5C1F3 /* Pods_SearchDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +32,7 @@
 /* Begin PBXFileReference section */
 		139DB299896EDE9128C5C1F3 /* Pods_SearchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345CBC358B7FCFA49F396611 /* Pods-SearchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchDemo/Pods-SearchDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		48588E8B20BAD386007B53A6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		48B302482035C01700BF826F /* SearchDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchDemo.entitlements; sourceTree = "<group>"; };
 		5F80AD3F1FBB00BB00EE46AC /* SearchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F80AD421FBB00BB00EE46AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		5F80AD501FBB00BB00EE46AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F80AD511FBB00BB00EE46AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5F80AD581FBB00D800EE46AC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5F80AD5A1FBB00E400EE46AC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6FB677C17F0447AC5BBDB6F8 /* Pods-SearchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchDemo/Pods-SearchDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				5F80AD421FBB00BB00EE46AC /* AppDelegate.h */,
 				5F80AD431FBB00BB00EE46AC /* AppDelegate.m */,
 				5F80AD451FBB00BB00EE46AC /* ViewController.h */,
-				5F80AD5A1FBB00E400EE46AC /* ViewController.m */,
+				48588E8B20BAD386007B53A6 /* ViewController.m */,
 				5F80AD581FBB00D800EE46AC /* Main.storyboard */,
 				5F80AD4B1FBB00BB00EE46AC /* Assets.xcassets */,
 				5F80AD4D1FBB00BB00EE46AC /* LaunchScreen.storyboard */,
@@ -232,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F80AD5B1FBB00E400EE46AC /* ViewController.m in Sources */,
+				48588E8C20BAD386007B53A6 /* ViewController.m in Sources */,
 				5F80AD521FBB00BB00EE46AC /* main.m in Sources */,
 				5F80AD441FBB00BB00EE46AC /* AppDelegate.m in Sources */,
 			);
