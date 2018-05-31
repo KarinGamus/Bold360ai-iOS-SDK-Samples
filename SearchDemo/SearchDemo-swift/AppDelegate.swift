@@ -1,10 +1,8 @@
-//
-//  AppDelegate.swift
-//  SearchDemo-swift
-//
-//  Created by Eliza Koren on 5/31/18.
-//  Copyright © 2018 nanorep. All rights reserved.
-//
+// ===================================================================================================
+// Copyright © 2018 nanorep.
+// NanorepUI SDK.
+// All rights reserved.
+// ===================================================================================================
 
 import UIKit
 

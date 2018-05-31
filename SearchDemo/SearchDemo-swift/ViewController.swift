@@ -8,6 +8,7 @@ import UIKit
 import NanorepUI
 
 class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldDelegate, NRApplicationContentHandler, NRReadMoreViewControllerDelegate  {
+    
     /************************************************************/
     // MARK: - Properties
     /************************************************************/
@@ -29,12 +30,12 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.appVersionLabel.text = appVersionLabel.text! + (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "")
+        self.sdkVersion.text = sdkVersion.text! + (Bundle.sdkVersion())
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -68,24 +69,9 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
     /************************************************************/
     // MARK: - NRReadMoreViewControllerDelegate
     /************************************************************/
+    
     func personalInfo(withExtraData extraData: [AnyHashable : Any]!, channel: NRChanneling!, completionHandler handler: (([AnyHashable : Any]?) -> Void)!) {
         handler(extraData)
-    }
-    
-    func didFetchExtraData(_ formData: [AnyHashable : Any]!) {
-        
-    }
-    
-    func didSubmitForm() {
-        
-    }
-    
-    func didCancelForm() {
-        
-    }
-    
-    func didFailSubmitFormWithError(_ error: Error!) {
-        
     }
     
     func shouldOverridePhoneChannel(_ phoneChannel: NRChannelingPhoneNumber!) -> Bool {
@@ -134,38 +120,27 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
         return true
     }
     
+    func readmoreController(_ readmoreController: NRReadMoreViewController!, presentModally controller: UIViewController!) {
+        if let aController = controller {
+            readmoreController?.navigationController?.present(aController, animated: true)
+        }
+    }
+    
     @objc func dismissDeeplinkPage(_ sender: UIBarButtonItem?) {
         self.presentedViewController?.dismiss(animated: true)
-    }
-
-    func didSubmitFeedback(_ info: [AnyHashable : Any]!) {
-        
     }
     
     func presenting(_ controller: UIViewController!, shouldHandleClickedLink link: String!) -> Bool {
         return true
     }
     
-    func didClick(toCall phoneNumber: String!) {
-        
-    }
-    
-    func didClickLink(_ url: String!) {
-        
-    }
-    
-    func didSessionExpire() {
-        
-    }
-    
-    func controller(_ controller: NRConversationalViewController!, didClickApplicationQuickOption quickOption: NRQuickOption!) {
-        
-    }
-    
-    func readmoreController(_ readmoreController: NRReadMoreViewController!, presentModally controller: UIViewController!) {
-        if let aController = controller {
-            readmoreController?.navigationController?.present(aController, animated: true)
-        }
-    }
+    func didSubmitFeedback(_ info: [AnyHashable : Any]!) {}
+    func didClick(toCall phoneNumber: String!) {}
+    func didClickLink(_ url: String!) {}
+    func didSessionExpire() {}
+    func didFetchExtraData(_ formData: [AnyHashable : Any]!) {}
+    func didSubmitForm() {}
+    func didCancelForm() {}
+    func didFailSubmitFormWithError(_ error: Error!) {}
+    func controller(_ controller: NRConversationalViewController!, didClickApplicationQuickOption quickOption: NRQuickOption!) {}
 }
-
