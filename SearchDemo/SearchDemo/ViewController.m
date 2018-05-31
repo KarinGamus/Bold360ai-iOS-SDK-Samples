@@ -1,15 +1,22 @@
-//
-//  ViewController.m
-//  DayTwoDemo
-//
-//  Created by Nissim Pardo on 05/11/2017.
-//  Copyright © 2017 nanorep. All rights reserved.
-//
+// ===================================================================================================
+// Copyright © 2018 nanorep.
+// NanorepUI SDK.
+// All rights reserved.
+// ===================================================================================================
 
 #import "ViewController.h"
 #import <NanorepUI/NanorepUI.h>
 
+/************************************************************/
+// MARK: - ViewController
+/************************************************************/
+
 @interface ViewController () <NanorepPersonalInfoHandler, UITextFieldDelegate, NRApplicationContentHandler, NRReadMoreViewControllerDelegate>
+
+/************************************************************/
+// MARK: - Properties
+/************************************************************/
+
 @property (weak, nonatomic) IBOutlet UITextField *kbTF;
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
 @property (weak, nonatomic) IBOutlet UISwitch *phoneConfirmation;
@@ -20,6 +27,10 @@
 @end
 
 @implementation ViewController
+
+/************************************************************/
+// MARK: - Functions
+/************************************************************/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,10 +49,9 @@
 - (IBAction)loadNanorep:(UIButton *)sender {
     [self.view endEditing:YES];
     AccountParams *account = [AccountParams new];
-    account.account = _accountTF.text;
-    account.knowledgeBase = _kbTF.text;
+    account.account = self.accountTF.text;
+    account.knowledgeBase = self.kbTF.text;
     
-//    account.nanorepContext =  @{@"DeviceType": @"iOS"};
     [[NanoRep shared] prepareWithAccountParams:account];
     __weak ViewController *weakSelf = self;
     [NanoRep shared].fetchConfiguration = ^(NRConfiguration *config, NSError *err) {
