@@ -59,9 +59,10 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
             DispatchQueue.main.async { [unowned self] in
                 self.widgetController = NRWidgetViewController()
                 self.widgetController.infoHandler = self
-                self.widgetController.view.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height - 44.0))
-                self.addChildViewController(self.widgetController)
-                self.view.addSubview(self.widgetController.view)
+                self.present(self.widgetController, animated: true, completion: nil)
+//                self.widgetController.view.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height - 44.0))
+//                self.addChildViewController(self.widgetController)
+//                self.view.addSubview(self.widgetController.view)
             }
         }
     }
@@ -70,9 +71,6 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
     // MARK: - NRReadMoreViewControllerDelegate
     /************************************************************/
     
-    func personalInfo(withExtraData extraData: [AnyHashable : Any]!, channel: NRChanneling!, completionHandler handler: (([AnyHashable : Any]?) -> Void)!) {
-        handler(extraData)
-    }
     
     func shouldOverridePhoneChannel(_ phoneChannel: NRChannelingPhoneNumber!) -> Bool {
         if self.phoneConfirmation.isOn {
@@ -138,9 +136,26 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
     func didClick(toCall phoneNumber: String!) {}
     func didClickLink(_ url: String!) {}
     func didSessionExpire() {}
-    func didFetchExtraData(_ formData: [AnyHashable : Any]!) {}
-    func didSubmitForm() {}
-    func didCancelForm() {}
-    func didFailSubmitFormWithError(_ error: Error!) {}
+    func didFetch(_ formData: ExtraData!) {
+        print("didFetchExtraData")
+    }
+    
+    func didSubmitForm() {
+        print("didSubmitForm")
+    }
+    
+    func didCancelForm() {
+        print("didCancelForm")
+    }
+    
+    func personalInfo(withExtraData extraData: [AnyHashable : Any]!, channel: NRChanneling!, completionHandler handler: (([AnyHashable : Any]?) -> Void)!) {
+        handler(extraData)
+        print("personalInfo")
+    }
+    
+    
+    func didFailSubmitFormWithError(_ error: Error!) {
+        
+    }
     func controller(_ controller: NRConversationalViewController!, didClickApplicationQuickOption quickOption: NRQuickOption!) {}
 }
