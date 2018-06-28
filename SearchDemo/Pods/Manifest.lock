@@ -1,0 +1,24 @@
+PODS:
+  - NanorepEngine (1.5.6)
+  - NanorepUI (1.6.0):
+    - NanorepEngine
+    - NRAccessibility
+  - NRAccessibility (1.5.5)
+
+DEPENDENCIES:
+  - NanorepUI
+
+SPEC REPOS:
+  https://github.com/Bold360ai/Bold360ai-SDK-Specs.git:
+    - NanorepEngine
+    - NanorepUI
+    - NRAccessibility
+
+SPEC CHECKSUMS:
+  NanorepEngine: c8a094f6823f49c490341ab7a4554148f781d206
+  NanorepUI: 3a9943ea38828cb33347f9a2b71e4d6092f5b089
+  NRAccessibility: 5084cb381e8302f71f19b5568eee94c46fbb77a4
+
+PODFILE CHECKSUM: 7212b8336323c07e6070c16ff2880b3d03014d5a
+
+COCOAPODS: 1.5.3

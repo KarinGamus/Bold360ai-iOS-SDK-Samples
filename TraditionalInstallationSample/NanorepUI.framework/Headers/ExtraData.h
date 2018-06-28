@@ -11,7 +11,7 @@
 @interface Value : NSObject
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *type;
-@property (nonatomic, copy) NSString *value;
+@property (nonatomic, copy) id value;
 @end
 
 @interface ExtraData : NSObject

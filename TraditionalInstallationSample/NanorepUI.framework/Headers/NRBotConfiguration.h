@@ -1,17 +1,23 @@
-//
-//  NRConfigurtion.h
-//  ConversationUI
-//
-//  Created by Nissim Pardo on 19/03/2017.
-//  Copyright © 2017 nanorep. All rights reserved.
-//
+// ===================================================================================================
+// Copyright © 2018 nanorep.
+// NanorepUI SDK.
+// All rights reserved.
+// ===================================================================================================
 
 #import <Foundation/Foundation.h>
+
+/************************************************************/
+// MARK: - NRResources
+/************************************************************/
 
 @interface NRResources : NSObject
 @property (nonatomic, copy) NSString *rootPath;
 @property (nonatomic, copy) NSArray<NSString *> *webResources;
 @end
+
+/************************************************************/
+// MARK: - NRBotConfiguration
+/************************************************************/
 
 @interface NRBotConfiguration : NSObject
 - (NSURL *)chatContentURLWithHandler:(void(^)(NSURL *contentURL))completion;

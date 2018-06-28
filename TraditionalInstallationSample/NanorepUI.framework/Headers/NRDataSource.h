@@ -43,6 +43,6 @@
 - (void)dynamicContext:(NSString *)context completion:(void(^)(NSArray<NSString *> *values))completion;
 //- (void)updateContext:(NSDictionary<NSString *, NSString *> *)context query:(NSString *)query;
 - (void)updateChannels:(NRResult *)result completion:(void (^)(NSArray<NRChanneling *> *channels, NSError *error))completion;
-- (void)fetchFAQForLabel:(NRLabel *)label completion:(void(^)())completion;
-- (void)clearContext:(NSString *)context;
+- (void)fetchFAQForLabel:(NRLabel *)label completion:(void(^)(void))completion;
+- (void)clearContext:(NSString *)context completion:(void (^)(BOOL success))completion;
 @end

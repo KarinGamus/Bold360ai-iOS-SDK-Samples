@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, NRAnimationType) {
 @property (nonatomic, weak) id<NRLikeViewDelegate> likeDelegate;
 @property (nonatomic, copy) NSString *feedbackPositiveButtonText;
 @property (nonatomic, copy) NSString *feedbackNegativeButtonText;
+@property (nonatomic, copy) NSString *text;
 @end
 
 @protocol NRNegativeFeedbackDelegate;

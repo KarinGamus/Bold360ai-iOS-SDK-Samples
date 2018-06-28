@@ -29,5 +29,7 @@
 @property (nonatomic, weak) id<NanorepPersonalInfoHandler> infoHandler;
 @property (nonatomic, weak) id<NRReadMoreViewControllerDelegate> delegate;
 @property (nonatomic, weak) IBOutlet NRResultPresntationView *resultView;
-@property (nonatomic, weak) id<ChannelPickerDelegate> channelPickerDelegate;
+@property (nonatomic, strong) id<ChannelPickerDelegate> channelPickerDelegate;
+
+- (void)dismiss;
 @end

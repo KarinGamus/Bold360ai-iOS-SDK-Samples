@@ -1,6 +1,0 @@
-framework module NRAccessibility {
-  umbrella header "NRAccessibility.h"
-
-  export *
-  module * { export * }
-}

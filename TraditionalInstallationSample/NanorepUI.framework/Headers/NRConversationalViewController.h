@@ -1,10 +1,8 @@
-//
-//  NRConversationalViewController.h
-//  NanorepUI
-//
-//  Created by Nissim Pardo on 05/12/2016.
-//  Copyright © 2016 nanorep. All rights reserved.
-//
+// ===================================================================================================
+// Copyright © 2018 nanorep.
+// NanorepUI SDK.
+// All rights reserved.
+// ===================================================================================================
 
 #import <UIKit/UIKit.h>
 #import "NRBotConfiguration.h"
@@ -24,9 +22,6 @@
 - (void)controller:(NRConversationalViewController *)controller didRequestLocation:(void(^)(double latitude, double longitude))locationHandler;
 - (BOOL)controller:(NRConversationalViewController *)controller shouldHandleFormPresentation:(UIViewController *)formController;
 @end
-
-
-
 
 @interface NRConversationalViewController : UIViewController
 - (instancetype)initWithAccountParams:(AccountParams *)accountParams;

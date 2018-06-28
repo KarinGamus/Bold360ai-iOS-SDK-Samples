@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4834AB5C20E4FDDF008A697B /* NanorepEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */; };
+		4834AB5D20E4FDDF008A697B /* NanorepEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4834AB5F20E4FE2B008A697B /* NRAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */; };
+		4834AB6020E4FE2B008A697B /* NRAccessibility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4834AB6620E4FFEC008A697B /* NanorepUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB6520E4FFEC008A697B /* NanorepUI.framework */; };
+		4834AB6720E4FFEC008A697B /* NanorepUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB6520E4FFEC008A697B /* NanorepUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFCA99E720BD6E0500824E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA99E620BD6E0500824E5D /* AppDelegate.swift */; };
 		AFCA99E920BD6E0500824E5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA99E820BD6E0500824E5D /* ViewController.swift */; };
 		AFCA99EC20BD6E0500824E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCA99EA20BD6E0500824E5D /* Main.storyboard */; };
 		AFCA99EE20BD6E0500824E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFCA99ED20BD6E0500824E5D /* Assets.xcassets */; };
 		AFCA99F120BD6E0500824E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCA99EF20BD6E0500824E5D /* LaunchScreen.storyboard */; };
-		AFCA99FB20BD6FCE00824E5D /* NanorepUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCA99F820BD6FCE00824E5D /* NanorepUI.framework */; };
-		AFCA99FC20BD6FCE00824E5D /* NanorepUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFCA99F820BD6FCE00824E5D /* NanorepUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AFCA99FD20BD6FCE00824E5D /* NRAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCA99F920BD6FCE00824E5D /* NRAccessibility.framework */; };
-		AFCA99FE20BD6FCE00824E5D /* NRAccessibility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFCA99F920BD6FCE00824E5D /* NRAccessibility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AFCA99FF20BD6FCE00824E5D /* NanorepEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCA99FA20BD6FCE00824E5D /* NanorepEngine.framework */; };
-		AFCA9A0020BD6FCE00824E5D /* NanorepEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFCA99FA20BD6FCE00824E5D /* NanorepEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,9 +27,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AFCA99FC20BD6FCE00824E5D /* NanorepUI.framework in Embed Frameworks */,
-				AFCA9A0020BD6FCE00824E5D /* NanorepEngine.framework in Embed Frameworks */,
-				AFCA99FE20BD6FCE00824E5D /* NRAccessibility.framework in Embed Frameworks */,
+				4834AB6720E4FFEC008A697B /* NanorepUI.framework in Embed Frameworks */,
+				4834AB5D20E4FDDF008A697B /* NanorepEngine.framework in Embed Frameworks */,
+				4834AB6020E4FE2B008A697B /* NRAccessibility.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +37,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepEngine.framework; sourceTree = "<group>"; };
+		4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NRAccessibility.framework; sourceTree = "<group>"; };
+		4834AB6520E4FFEC008A697B /* NanorepUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepUI.framework; sourceTree = "<group>"; };
 		AFCA99E320BD6E0500824E5D /* TraditionalInstallationSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraditionalInstallationSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCA99E620BD6E0500824E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFCA99E820BD6E0500824E5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,9 +47,6 @@
 		AFCA99ED20BD6E0500824E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFCA99F020BD6E0500824E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFCA99F220BD6E0500824E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFCA99F820BD6FCE00824E5D /* NanorepUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepUI.framework; sourceTree = "<group>"; };
-		AFCA99F920BD6FCE00824E5D /* NRAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NRAccessibility.framework; sourceTree = "<group>"; };
-		AFCA99FA20BD6FCE00824E5D /* NanorepEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepEngine.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFCA99FB20BD6FCE00824E5D /* NanorepUI.framework in Frameworks */,
-				AFCA99FF20BD6FCE00824E5D /* NanorepEngine.framework in Frameworks */,
-				AFCA99FD20BD6FCE00824E5D /* NRAccessibility.framework in Frameworks */,
+				4834AB6620E4FFEC008A697B /* NanorepUI.framework in Frameworks */,
+				4834AB5C20E4FDDF008A697B /* NanorepEngine.framework in Frameworks */,
+				4834AB5F20E4FE2B008A697B /* NRAccessibility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,9 +66,9 @@
 		AFCA99DA20BD6E0500824E5D = {
 			isa = PBXGroup;
 			children = (
-				AFCA99FA20BD6FCE00824E5D /* NanorepEngine.framework */,
-				AFCA99F820BD6FCE00824E5D /* NanorepUI.framework */,
-				AFCA99F920BD6FCE00824E5D /* NRAccessibility.framework */,
+				4834AB6520E4FFEC008A697B /* NanorepUI.framework */,
+				4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */,
+				4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */,
 				AFCA99E520BD6E0500824E5D /* TraditionalInstallationSample */,
 				AFCA99E420BD6E0500824E5D /* Products */,
 			);
@@ -307,13 +307,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86JD9PF36X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TraditionalInstallationSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bold360ai.example.TraditionalInstallationSample;
+				PRODUCT_BUNDLE_IDENTIFIER = TraditionalInstallationSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,13 +328,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86JD9PF36X;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TraditionalInstallationSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bold360ai.example.TraditionalInstallationSample;
+				PRODUCT_BUNDLE_IDENTIFIER = TraditionalInstallationSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

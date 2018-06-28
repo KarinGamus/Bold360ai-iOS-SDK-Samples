@@ -45,7 +45,7 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
         let accountParams = AccountParams()
         accountParams.account =  self.accountTF.text
         accountParams.knowledgeBase = self.kbTF.text
-        
+//        accountParams.perform(Selector("setServer:"), with: "qa09")
         NanoRep.shared().prepare(with: accountParams)
         
         NanoRep.shared().fetchConfiguration = {
@@ -82,6 +82,11 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
         return phoneConfirmation.isOn
     }
     
+//    func shouldPresentConfirmationPopup(forChannel channel: NRChanneling!) -> Bool {
+//        return true
+//    }
+
+    
     func presentFileList(_ files: [String]?) {
         let alert = UIAlertController(title: "Files To Upload", message: nil, preferredStyle: .actionSheet)
         for key: String? in files ?? [String?]() {
@@ -105,7 +110,6 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
                 DispatchQueue.main.async(execute: {
                     let deepLink = NRReadMoreViewController()
                     deepLink.infoHandler = self
-                    deepLink.delegate = self
                     deepLink.articleId = textField.text
                     deepLink.applicationHandler = weakSelf
                     let navController = UINavigationController(rootViewController: deepLink)
@@ -125,7 +129,10 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
     }
     
     @objc func dismissDeeplinkPage(_ sender: UIBarButtonItem?) {
-        self.presentedViewController?.dismiss(animated: true)
+        ((self.presentedViewController as! UINavigationController).viewControllers.first as! NRReadMoreViewController).dismiss()
+        self.presentedViewController?.dismiss(animated: true, completion: {
+            
+        })
     }
     
     func presenting(_ controller: UIViewController!, shouldHandleClickedLink link: String!) -> Bool {
@@ -136,8 +143,12 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
     func didClick(toCall phoneNumber: String!) {}
     func didClickLink(_ url: String!) {}
     func didSessionExpire() {}
+    
     func didFetch(_ formData: ExtraData!) {
         print("didFetchExtraData")
+        for value in formData.values {
+            print(value.value)
+        }
     }
     
     func didSubmitForm() {
@@ -149,6 +160,8 @@ class ViewController: UIViewController, NanorepPersonalInfoHandler, UITextFieldD
     }
     
     func personalInfo(withExtraData extraData: [AnyHashable : Any]!, channel: NRChanneling!, completionHandler handler: (([AnyHashable : Any]?) -> Void)!) {
+//        var temp = extraData!
+//        temp["Testing"] = "working"
         handler(extraData)
         print("personalInfo")
     }
