@@ -1,0 +1,6 @@
+framework module NanorepEngine {
+  umbrella header "NanorepEngine.h"
+
+  export *
+  module * { export * }
+}

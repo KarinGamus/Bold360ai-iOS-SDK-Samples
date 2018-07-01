@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4834AB5C20E4FDDF008A697B /* NanorepEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */; };
-		4834AB5D20E4FDDF008A697B /* NanorepEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4834AB5F20E4FE2B008A697B /* NRAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */; };
-		4834AB6020E4FE2B008A697B /* NRAccessibility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4834AB6620E4FFEC008A697B /* NanorepUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB6520E4FFEC008A697B /* NanorepUI.framework */; };
-		4834AB6720E4FFEC008A697B /* NanorepUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4834AB6520E4FFEC008A697B /* NanorepUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFCA99E720BD6E0500824E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA99E620BD6E0500824E5D /* AppDelegate.swift */; };
 		AFCA99E920BD6E0500824E5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCA99E820BD6E0500824E5D /* ViewController.swift */; };
 		AFCA99EC20BD6E0500824E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCA99EA20BD6E0500824E5D /* Main.storyboard */; };
 		AFCA99EE20BD6E0500824E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFCA99ED20BD6E0500824E5D /* Assets.xcassets */; };
 		AFCA99F120BD6E0500824E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCA99EF20BD6E0500824E5D /* LaunchScreen.storyboard */; };
+		AFD0AFCE20E8FE0200BAC079 /* NRAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD0AFCB20E8FE0100BAC079 /* NRAccessibility.framework */; };
+		AFD0AFCF20E8FE0200BAC079 /* NRAccessibility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFD0AFCB20E8FE0100BAC079 /* NRAccessibility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AFD0AFD020E8FE0200BAC079 /* NanorepEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD0AFCC20E8FE0200BAC079 /* NanorepEngine.framework */; };
+		AFD0AFD120E8FE0200BAC079 /* NanorepEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFD0AFCC20E8FE0200BAC079 /* NanorepEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AFD0AFD220E8FE0200BAC079 /* NanorepUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD0AFCD20E8FE0200BAC079 /* NanorepUI.framework */; };
+		AFD0AFD320E8FE0200BAC079 /* NanorepUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFD0AFCD20E8FE0200BAC079 /* NanorepUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,9 +27,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4834AB6720E4FFEC008A697B /* NanorepUI.framework in Embed Frameworks */,
-				4834AB5D20E4FDDF008A697B /* NanorepEngine.framework in Embed Frameworks */,
-				4834AB6020E4FE2B008A697B /* NRAccessibility.framework in Embed Frameworks */,
+				AFD0AFD320E8FE0200BAC079 /* NanorepUI.framework in Embed Frameworks */,
+				AFD0AFD120E8FE0200BAC079 /* NanorepEngine.framework in Embed Frameworks */,
+				AFD0AFCF20E8FE0200BAC079 /* NRAccessibility.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,9 +37,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepEngine.framework; sourceTree = "<group>"; };
-		4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NRAccessibility.framework; sourceTree = "<group>"; };
-		4834AB6520E4FFEC008A697B /* NanorepUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepUI.framework; sourceTree = "<group>"; };
 		AFCA99E320BD6E0500824E5D /* TraditionalInstallationSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TraditionalInstallationSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCA99E620BD6E0500824E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFCA99E820BD6E0500824E5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +44,9 @@
 		AFCA99ED20BD6E0500824E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFCA99F020BD6E0500824E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFCA99F220BD6E0500824E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFD0AFCB20E8FE0100BAC079 /* NRAccessibility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NRAccessibility.framework; sourceTree = "<group>"; };
+		AFD0AFCC20E8FE0200BAC079 /* NanorepEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepEngine.framework; sourceTree = "<group>"; };
+		AFD0AFCD20E8FE0200BAC079 /* NanorepUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NanorepUI.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +54,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4834AB6620E4FFEC008A697B /* NanorepUI.framework in Frameworks */,
-				4834AB5C20E4FDDF008A697B /* NanorepEngine.framework in Frameworks */,
-				4834AB5F20E4FE2B008A697B /* NRAccessibility.framework in Frameworks */,
+				AFD0AFD220E8FE0200BAC079 /* NanorepUI.framework in Frameworks */,
+				AFD0AFD020E8FE0200BAC079 /* NanorepEngine.framework in Frameworks */,
+				AFD0AFCE20E8FE0200BAC079 /* NRAccessibility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,9 +66,9 @@
 		AFCA99DA20BD6E0500824E5D = {
 			isa = PBXGroup;
 			children = (
-				4834AB6520E4FFEC008A697B /* NanorepUI.framework */,
-				4834AB5E20E4FE2B008A697B /* NRAccessibility.framework */,
-				4834AB5B20E4FDDF008A697B /* NanorepEngine.framework */,
+				AFD0AFCC20E8FE0200BAC079 /* NanorepEngine.framework */,
+				AFD0AFCD20E8FE0200BAC079 /* NanorepUI.framework */,
+				AFD0AFCB20E8FE0100BAC079 /* NRAccessibility.framework */,
 				AFCA99E520BD6E0500824E5D /* TraditionalInstallationSample */,
 				AFCA99E420BD6E0500824E5D /* Products */,
 			);

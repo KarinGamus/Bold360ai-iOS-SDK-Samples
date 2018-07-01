@@ -1,3 +1,6 @@
+
+// NanorepUI version number: v1.6.1 
+
 //
 // Created by Nissim Pardo on 07/06/2017.
 // Copyright (c) 2017 nanorep. All rights reserved.

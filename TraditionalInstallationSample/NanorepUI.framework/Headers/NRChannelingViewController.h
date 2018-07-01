@@ -1,3 +1,6 @@
+
+// NanorepUI version number: v1.6.1 
+
 //
 //  NRChannelingViewController.h
 //  NanoRepWidget
