@@ -1,6 +1,0 @@
-framework module Pods_SearchDemo_swift {
-  umbrella header "Pods-SearchDemo-swift-umbrella.h"
-
-  export *
-  module * { export * }
-}

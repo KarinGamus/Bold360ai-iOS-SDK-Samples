@@ -1,6 +1,0 @@
-framework module NanorepUI {
-  umbrella header "NanorepUI.h"
-
-  export *
-  module * { export * }
-}
