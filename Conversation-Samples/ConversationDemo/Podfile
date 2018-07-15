@@ -8,15 +8,9 @@ platform :ios, "9.0"
 use_frameworks!
 
 # Uncomment to use a local copy of PlayKit
-<<<<<<< HEAD:ConversationDemo/Podfile
-NR_LOCAL="../../NanorepUI/NanorepUI-Dev.podspec"
+# NR_LOCAL="../../NanorepUI/NanorepUI-Dev.podspec"
 NR_ENGINE="../../NanorepEngine/NanorepEngine-Dev.podspec"
 NR_ACCESSIBILITY="../../NRAccessibility/NRAccessibility-Dev.podspec"
-=======
-# NR_LOCAL="../../../NanorepUI/NanorepUI-Dev.podspec"
-NR_ENGINE="../../../NanorepEngine/NanorepEngine-Dev.podspec"
-NR_ACCESSIBILITY="../../../NRAccessibility/NRAccessibility-Dev.podspec"
->>>>>>> e1e1b0424a8ac19344cae13cb6fdfed4b6ca5a90:Conversation-Samples/ConversationDemo/Podfile
 
 # Production
 source 'https://github.com/nanorepsdk/NRSDK-specs.git'
