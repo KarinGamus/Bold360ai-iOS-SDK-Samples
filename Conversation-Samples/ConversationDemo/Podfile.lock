@@ -6,23 +6,23 @@ PODS:
   - NRAccessibility (1.5.x-dev)
 
 DEPENDENCIES:
-  - NanorepEngine (from `../../NanorepEngine/NanorepEngine-Dev.podspec`)
-  - NanorepUI (from `../../NanorepUI/NanorepUI-Dev.podspec`)
-  - NRAccessibility (from `../../NRAccessibility/NRAccessibility-Dev.podspec`)
+  - NanorepEngine (from `../../../NanorepEngine/NanorepEngine-Dev.podspec`)
+  - NanorepUI (from `../../../NanorepUI/NanorepUI-Dev.podspec`)
+  - NRAccessibility (from `../../../NRAccessibility/NRAccessibility-Dev.podspec`)
 
 EXTERNAL SOURCES:
   NanorepEngine:
-    :path: "../../NanorepEngine/NanorepEngine-Dev.podspec"
+    :path: "../../../NanorepEngine/NanorepEngine-Dev.podspec"
   NanorepUI:
-    :path: "../../NanorepUI/NanorepUI-Dev.podspec"
+    :path: "../../../NanorepUI/NanorepUI-Dev.podspec"
   NRAccessibility:
-    :path: "../../NRAccessibility/NRAccessibility-Dev.podspec"
+    :path: "../../../NRAccessibility/NRAccessibility-Dev.podspec"
 
 SPEC CHECKSUMS:
   NanorepEngine: db6a498bde7e3a5e7e8f6b33cd62505b9504826c
-  NanorepUI: 1b064238291d7dd399dc92e3d6e3672ed2b7a8bd
+  NanorepUI: 72d49049b77f88f120e08f6f0e6cdfcc49a6372e
   NRAccessibility: bdd143a11b949b0e73a34899802f46b09e8948fb
 
-PODFILE CHECKSUM: d15d942862be487be2718ec6cc14052b874b11ee
+PODFILE CHECKSUM: 285cd85393ab9040e862cb8f74152b1fc10022ef
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

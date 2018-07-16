@@ -27,6 +27,8 @@ class ViewController: UIViewController, NRChatEngineDelegate, NRApplicationConte
     @IBAction func loadNanorep(_ sender: UIButton) {
         // Set config
         let config: NRBotConfiguration = NRBotConfiguration()
+        config.chatContentURL = URL(string: "")
+        config.chatElementMaxLength = 620;
         config.withNavBar = true
         // Create NRConversationalViewController
         controller = NRConversationalViewController(accountParams: self.accountParams)
