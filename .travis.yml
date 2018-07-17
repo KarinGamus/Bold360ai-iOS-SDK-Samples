@@ -2,7 +2,6 @@ language: objective-c
 osx_image: xcode9
 before_install:
   - gem install cocoapods # Since Travis is not always on latest version
-deploy:
   # deploy develop to the staging environment
   - provider: script
     script: 
