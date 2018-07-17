@@ -6,7 +6,7 @@ script:
   - cd Conversation-Samples
   - cd ConversationDemo
   - pod update --repo-update
-  - xcodebuild -scheme ConversationDemo -workspace ConversationDemo.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=9.1' build test
+  - xcodebuild -scheme ConversationDemo -workspace ConversationDemo.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6S,OS=9.1'
 notifications:
   email:
     recipients:
