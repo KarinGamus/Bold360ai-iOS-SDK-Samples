@@ -1,3 +1,5 @@
+[![CI Status](https://api.travis-ci.org/kaltura/playkit-ios.svg?branch=develop)](https://travis-ci.org/kaltura/playkit-ios)
+
 ## Bold360ai iOS SDK Samples
 
 This project hosts samples for the [Bold360AI iOS SDK](https://github.com/nanorepsdk/Bold360AI-iOS-SDK)
