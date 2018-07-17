@@ -4,9 +4,9 @@ before_install:
   - gem install cocoapods # Since Travis is not always on latest version
 script:
   - cd Conversation-Samples
-  - cd ConversationDemo
+  - cd HistorySample
   - pod update --repo-update
-  - xcodebuild -allowProvisioningUpdates -scheme ConversationDemo -workspace ConversationDemo.xcworkspace
+  - xcodebuild -allowProvisioningUpdates -scheme HistorySample -workspace HistorySample.xcworkspace
 notifications:
   email:
     recipients:
