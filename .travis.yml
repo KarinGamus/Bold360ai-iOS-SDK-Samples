@@ -5,6 +5,7 @@ before_install:
   - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPhone 6 (9.3" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
   - echo $IOS_SIMULATOR_UDID
   - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
+  - xctool -workspace cam-pro.xcworkspace -scheme cam-beta clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 script:
   - cd Conversation-Samples
   - cd ConversationDemo
