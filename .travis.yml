@@ -2,6 +2,7 @@ language: objective-c
 osx_image: xcode9
 before_install:
   - gem install cocoapods # Since Travis is not always on latest version
+  - xcodebuild clean build
   - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPhone 7 (9.3" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
   - echo $IOS_SIMULATOR_UDID
   - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
