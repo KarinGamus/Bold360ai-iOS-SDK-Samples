@@ -1,4 +1,4 @@
-[![CI Status](https://api.travis-ci.org/kaltura/playkit-ios.svg?branch=develop)](https://travis-ci.org/kaltura/playkit-ios)
+[![CI Status](https://api.travis-ci.org/bold360ai/Bold360ai-iOS-SDK-Samples.svg?branch=master)](https://travis-ci.org/bold360ai/Bold360ai-iOS-SDK-Samples)
 
 ## Bold360ai iOS SDK Samples
 
