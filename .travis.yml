@@ -6,6 +6,7 @@ script:
   - cd Conversation-Samples
   - cd ConversationDemo
   - pod update --repo-update
+  - sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/' ConversationDemo.xcodeproj/project.pbxproj
   - xcodebuild -scheme ConversationDemo -workspace  ConversationDemo.xcworkspace
 notifications:
   email:
