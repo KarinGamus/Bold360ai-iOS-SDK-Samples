@@ -2,10 +2,6 @@ language: objective-c
 osx_image: xcode9
 before_install:
   - gem install cocoapods # Since Travis is not always on latest version
-  - export IOS_SIMULATOR_UDID=`instruments -s devices | grep "iPhone 7 (9.3" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
-  - echo $IOS_SIMULATOR_UDID
-  - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
-  - sed -i '' 's/ProvisioningStyle = Automatic;/ProvisioningStyle = Manual;/' ConversationDemo.xcodeproj/project.pbxproj
 script:
   - cd Conversation-Samples
   - cd ConversationDemo
@@ -19,4 +15,4 @@ notifications:
       - Tony.Shlifstein@logmein.com
       - Oz.BenOved@logmein.com
     on_success: change
-    on_failure: always
+    on_failure: change
