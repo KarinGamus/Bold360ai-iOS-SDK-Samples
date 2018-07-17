@@ -2,10 +2,11 @@ language: objective-c
 osx_image: xcode9
 before_install:
   - gem install cocoapods # Since Travis is not always on latest version
-  deploy:
+deploy:
   # deploy develop to the staging environment
   - provider: script
-    script: bash scripts/build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
+    script: 
+      bash scripts/build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
     on:
       branch: master
 # script:
