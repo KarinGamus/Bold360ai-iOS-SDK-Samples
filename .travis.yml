@@ -6,7 +6,7 @@ script:
   - cd Conversation-Samples
   - cd ConversationDemo
   - pod update --repo-update
-  - xcodebuild -scheme ConversationDemo -workspace  ConversationDemo.xcworkspace
+  - xcodebuild -scheme ConversationDemo -workspace -allowProvisioningUpdates  ConversationDemo.xcworkspace
 notifications:
   email:
     recipients:
