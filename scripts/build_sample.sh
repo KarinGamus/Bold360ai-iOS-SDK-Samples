@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-#exit on failure and pipeline used to receive the exit code from xcpretty
-set -eo pipefail
-
 #ARGUMENTS
 FOLDER_NAME=$1
 SUB_FOLDER_NAME=$2
