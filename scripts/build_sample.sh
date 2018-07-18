@@ -5,10 +5,10 @@ FOLDER_NAME=$1
 SUB_FOLDER_NAME=$2
 WORKSPACE_NAME=$3
 
-echo cd to $FOLDER_NAME
+# echo cd to $FOLDER_NAME
 cd $FOLDER_NAME
 if [ $SUB_FOLDER_NAME != "" ]; then
-echo cd to $SUB_FOLDER_NAME
+# echo cd to $SUB_FOLDER_NAME
 cd $SUB_FOLDER_NAME
 fi
 
