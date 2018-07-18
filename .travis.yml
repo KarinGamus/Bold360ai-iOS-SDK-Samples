@@ -7,7 +7,7 @@ before_install:
 #   - provider: script
 script:
    - cd scripts
-   - sh build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
+   - sh build_sample.sh #Conversation-Samples ConversationDemo ConversationDemo
 #     on:
 #       branch: master
 # script:
