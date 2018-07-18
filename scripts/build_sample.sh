@@ -5,7 +5,10 @@ FOLDER_NAME=$1
 SUB_FOLDER_NAME=$2
 WORKSPACE_NAME=$3
 
-sudo dos2unix $FOLDER_NAME
+for i in *; do 
+if [[ -f $i ]]; 
+then sed -i 's/\r$//' "$i"; 
+fi; done
 
 # echo cd to $FOLDER_NAME
 cd $FOLDER_NAME
