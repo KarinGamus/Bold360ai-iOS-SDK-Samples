@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-
 #ARGUMENTS
 FOLDER_NAME=$1
 SUB_FOLDER_NAME=$2
 WORKSPACE_NAME=$3
 
-for i in *; do 
-if [[ -f $i ]]; 
-then sed -i 's/\r$//' "$i"; 
-fi; done
+tr -d '\r' $FOLDER_NAME $FOLDER_NAME
+# tr -d '\r' < filename > new_filename
+# tr -d '\r' < filename > new_filename
 
 # echo cd to $FOLDER_NAME
 cd $FOLDER_NAME
