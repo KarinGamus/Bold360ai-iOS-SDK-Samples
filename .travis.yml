@@ -5,8 +5,9 @@ before_install:
   # deploy develop to the staging environment
 # deploy:
 #   - provider: script
-script: 
-   - bash scripts/build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
+script:
+   - cd scripts
+   - bash build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
 #     on:
 #       branch: master
 # script:
