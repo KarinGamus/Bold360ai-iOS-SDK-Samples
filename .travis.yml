@@ -2,6 +2,7 @@ language: objective-c
 osx_image: xcode9
 before_install:
   - gem install cocoapods # Since Travis is not always on latest version
+  - sudo apt-get install dos2unix
   # deploy develop to the staging environment
 # deploy:
 #   - provider: script
