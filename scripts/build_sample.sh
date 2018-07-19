@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #ARGUMENTS
 FOLDER_NAME=$1
