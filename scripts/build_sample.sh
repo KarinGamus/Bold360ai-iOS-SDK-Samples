@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 #ARGUMENTS
 FOLDER_NAME=$1
 SUB_FOLDER_NAME=$2
