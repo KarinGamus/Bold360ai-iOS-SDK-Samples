@@ -3,10 +3,11 @@
 FOLDER_NAME=$1
 SUB_FOLDER_NAME=$2
 WORKSPACE_NAME=$3
+SUFFIX='\r'
 
-tr -d '\r' $FOLDER_NAME $FOLDER_NAME
-# tr -d '\r' < filename > new_filename
-# tr -d '\r' < filename > new_filename
+FOLDER_NAME=${$FOLDER_NAME%$SUFFIX}
+SUB_FOLDER_NAME=${$SUB_FOLDER_NAME%$SUFFIX}
+WORKSPACE_NAME=${$WORKSPACE_NAME%$SUFFIX}
 
 # echo cd to $FOLDER_NAME
 cd $FOLDER_NAME
