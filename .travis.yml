@@ -6,7 +6,7 @@ before_install:
 # deploy:
 #   - provider: script
 script:
-   - sh -x ./scripts/build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
+   - bash -x ./scripts/build_sample.sh Conversation-Samples ConversationDemo ConversationDemo
 #     on:
 #       branch: master
 # script:
