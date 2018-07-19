@@ -34,7 +34,6 @@ target 'SearchDemo-swift' do
         pod 'NanorepEngine', :path => NR_ENGINE
         pod 'NRAccessibility', :path => NR_ACCESSIBILITY
         pod 'NanorepUI', :path => NR_LOCAL
-        
     else
         pod 'NanorepUI'
     end
