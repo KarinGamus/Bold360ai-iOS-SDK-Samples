@@ -12,10 +12,11 @@ use_frameworks!
 NR_ENGINE="../../../NanorepEngine/NanorepEngine-Dev.podspec"
 NR_ACCESSIBILITY="../../../NRAccessibility/NRAccessibility-Dev.podspec"
 
-# Production
-source 'https://github.com/nanorepsdk/NRSDK-specs.git'
 # Dev
 #source 'https://github.com/nanorepsdk/NRSDK-Dev-specs.git'
+# Production
+source 'https://github.com/nanorepsdk/NRSDK-specs.git'
+
 source 'https://github.com/CocoaPods/Specs'
 
 target 'HistorySample' do
@@ -23,8 +24,9 @@ target 'HistorySample' do
         pod 'NanorepEngine', :path => NR_ENGINE
         pod 'NRAccessibility', :path => NR_ACCESSIBILITY
         pod 'NanorepUI', :path => NR_LOCAL
-        
+        pod 'RealmSwift'
     else
         pod 'NanorepUI'
+        #pod 'SQLite.swift'
     end
 end

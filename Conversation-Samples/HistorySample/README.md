@@ -1,10 +1,10 @@
-# Conversation Setup Sample
+# History Setup Sample
 
 ## Purpose
 
-This Conversation setup sample show how to create and setup Conversation.
+This History setup sample show how to create and setup history support for conversation.
 
-For more info see [documentation](https://github.com/nanorepsdk/NanorepUI/wiki)
+For more info see [documentation](https://github.com/bold360ai/bold360ai_ios_sdk/wiki/Conversation-History-Service)
 
 ## How to use
 
