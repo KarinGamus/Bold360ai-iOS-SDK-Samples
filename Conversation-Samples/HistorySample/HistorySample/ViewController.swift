@@ -13,15 +13,15 @@ class ViewController: UIViewController, HistoryProvider {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.accountParams.account = "jio"
-        self.accountParams.knowledgeBase = "Staging"
-        self.accountParams.apiKey = "8bad6dea-8da4-4679-a23f-b10e62c84de8"
+        self.accountParams.account = ""
+        self.accountParams.knowledgeBase = ""
+        self.accountParams.apiKey = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.accountParams.account = "jio"
-        self.accountParams.knowledgeBase = "Staging"
-        self.accountParams.apiKey = "8bad6dea-8da4-4679-a23f-b10e62c84de8"
+        self.accountParams.account = ""
+        self.accountParams.knowledgeBase = ""
+        self.accountParams.apiKey = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +32,7 @@ class ViewController: UIViewController, HistoryProvider {
     @IBAction func loadNanorep(_ sender: UIButton) {
         let config: NRBotConfiguration = NRBotConfiguration()
 //        config.chatContentURL = URL.init(string:"http://192.168.9.245:8000/Desktop/Repos/iOS/ConversationalWebView/v2/view-rbs.html")
-        config.chatContentURL = URL.init(string:"https://cdn-customers.nanorep.com/v3/view-rbs.html")
+        config.chatContentURL = URL.init(string:"")
         config.withNavBar = true
         // TODO: under config pass id
         let controller: NRConversationalViewController =
