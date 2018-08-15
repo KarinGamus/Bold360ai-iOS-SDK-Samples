@@ -16,7 +16,8 @@ class Item: Object, StorableChatElement {
         self.agentType = item.agentType
         self.status = item.status
         self.timestamp = item.timestamp
-        self.content = item.content
+        self.text = item.text
+        self.source = item.source
     }
     
     var storageKey: String! = ""
@@ -27,10 +28,11 @@ class Item: Object, StorableChatElement {
     
     var type: ChatElementType = ChatElementType.LocalElement
     
-    var timestamp: TimeInterval = 0.0
+    var timestamp: Date!
     
-    var content: String! = ""
+    var text: String! = ""
     
+    var source: ChatElementSource = .history
     
     @objc dynamic var ID = -1
     @objc dynamic var textString = ""
