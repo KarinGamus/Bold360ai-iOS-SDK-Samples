@@ -6,7 +6,11 @@
 
 import UIKit
 import NanorepUI
-//import RealmSwift
+import RealmSwift
+
+/************************************************************/
+// MARK: - ViewController
+/************************************************************/
 
 class ViewController: UIViewController {
     var delegate: ChatHandlerDelegate!
@@ -15,20 +19,11 @@ class ViewController: UIViewController {
     var chatHandlerProvider: ChatHandlerProvider!
     var historyElements = [String: Array<StorableChatElement>]()
     
-    private let accountParams = AccountParams()
+    private var accountParams: AccountParams?
     var chatController: NRChatController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.accountParams.account = "jio"
-        self.accountParams.knowledgeBase = "Staging"
-        self.accountParams.apiKey = "8bad6dea-8da4-4679-a23f-b10e62c84de8"
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.accountParams.account = "jio"
-        self.accountParams.knowledgeBase = "Staging"
-        self.accountParams.apiKey = "8bad6dea-8da4-4679-a23f-b10e62c84de8"
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,16 +33,9 @@ class ViewController: UIViewController {
     
     @IBAction func loadNanorep(_ sender: UIButton) {
         let config: NRBotConfiguration = NRBotConfiguration()
-//        config.chatContentURL = URL.init(string:"http://192.168.9.245:8000/Desktop/Repos/iOS/ConversationalWebView/v2/view-rbs.html")
-        let localAccountParams = AccountParamsHelper.getLocalParams()
-        let accountParams = AccountParams()
-        accountParams.account = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.Account)
-        accountParams.knowledgeBase = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.KnowledgeBase)
-        accountParams.apiKey = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.ApiKey)
-        accountParams.nanorepContext = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.NanorepContext)
-        accountParams.perform(Selector.init(("setServer:")), with: localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.Server))
+        self.accountParams = self.setupAccountParams()
         self.chatController = NRChatController(account: self.accountParams)
-        config.chatContentURL = URL.init(string:localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.ChatContentURL)!)
+        config.chatContentURL = URL.init(string:AccountParamsHelper.getLocalParams()[AccountParamsHelper.accountParamsKeys.ChatContentURL]!)
         config.withNavBar = true
         // TODO: under config pass id
         self.chatController.delegate = self
@@ -60,6 +48,18 @@ class ViewController: UIViewController {
             }
         }
         
+    }
+    
+    func setupAccountParams() -> AccountParams {
+        let params = AccountParams()
+        let localAccountParams = AccountParamsHelper.getLocalParams()
+        params.account = localAccountParams[AccountParamsHelper.accountParamsKeys.Account]
+        params.knowledgeBase = localAccountParams[AccountParamsHelper.accountParamsKeys.KnowledgeBase]
+        params.apiKey = localAccountParams[AccountParamsHelper.accountParamsKeys.ApiKey]
+        params.nanorepContext = ["UserRole": AccountParamsHelper.accountParamsKeys.NanorepContext]
+        params.perform(Selector.init(("setServer:")), with: localAccountParams[AccountParamsHelper.accountParamsKeys.Server])
+        
+        return params
     }
     
     @IBAction func deleteHistory(_ sender: Any) {
