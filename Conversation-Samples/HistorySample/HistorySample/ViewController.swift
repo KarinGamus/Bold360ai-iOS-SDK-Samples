@@ -8,19 +8,12 @@ import UIKit
 import NanorepUI
 //import RealmSwift
 
-class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegate, ChatHandler  {
+class ViewController: UIViewController {
     var delegate: ChatHandlerDelegate!
     
     var chatControllerDelegate: NRChatControllerDelegate!
     var chatHandlerProvider: ChatHandlerProvider!
-    
-    func handleClickedLink(_ link: URL!) {
-        
-    }
-    
-    func handleEvent(_ eventParams: [AnyHashable : Any]!) {
-        
-    }
+    var historyElements = [String: Array<StorableChatElement>]()
     
     private let accountParams = AccountParams()
     var chatController: NRChatController!
@@ -46,14 +39,15 @@ class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegat
     @IBAction func loadNanorep(_ sender: UIButton) {
         let config: NRBotConfiguration = NRBotConfiguration()
 //        config.chatContentURL = URL.init(string:"http://192.168.9.245:8000/Desktop/Repos/iOS/ConversationalWebView/v2/view-rbs.html")
+        let localAccountParams = AccountParamsHelper.getLocalParams()
         let accountParams = AccountParams()
-        accountParams.account = "rbs"
-        accountParams.knowledgeBase = "MyKnowledgeMobile"
-        accountParams.apiKey = "2fdce18f-4e7d-4517-8f72-4db07c755939"
-        accountParams.nanorepContext = ["UserRole": "Branch_Banking_NatWest"]
-        accountParams.perform(Selector.init("setServer:"), with: "eu1-4")
+        accountParams.account = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.Account)
+        accountParams.knowledgeBase = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.KnowledgeBase)
+        accountParams.apiKey = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.ApiKey)
+        accountParams.nanorepContext = localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.NanorepContext)
+        accountParams.perform(Selector.init(("setServer:")), with: localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.Server))
         self.chatController = NRChatController(account: self.accountParams)
-        config.chatContentURL = URL.init(string:"http://10.228.220.38:8000/Repos/Web/ConversationalWebView/v3/view-rbs.html")
+        config.chatContentURL = URL.init(string:localAccountParams.value(forKey: AccountParamsHelper.accountParamsKeys.ChatContentURL)!)
         config.withNavBar = true
         // TODO: under config pass id
         self.chatController.delegate = self
@@ -78,44 +72,13 @@ class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegat
         self.navigationController?.viewControllers.last?.perform(#selector(setter: UIViewController.title), with: nil, afterDelay: 2)
         self.chatHandlerProvider.didEndChat(self)
     }
-    
+}
 
-    var historyElements = [String: Array<StorableChatElement>]()
-    
-    func fetch(_ from: Int, handler: (([Any]?) -> Void)!) {
-        print("fetch")
-        
-        var elements: Array<StorableChatElement>!
-        
-        if(DBManager.sharedInstance.getDataFromDB().count > 0) {
-            let items = DBManager.sharedInstance.getDataFromDB()
-          //  let elements = historyElements.values.first
-            
-            elements = Array(items)
-        }
-        handler(elements)
-    }
-    
-    func store(_ item: StorableChatElement) {
-        print("store")
+/************************************************************/
+// MARK: - ChatHandler
+/************************************************************/
 
-        let element = Item(item: item)
-        element.ID = Int(DBManager.sharedInstance.getDataFromDB().count)
-        DBManager.sharedInstance.addData(object: element)
-    }
-    
-    func remove(_ timestampId: TimeInterval) {
-        print("remove")
-        
-        DBManager.sharedInstance.deleteAllDatabase()
-    }
-    
-    func update(_ timestampId: TimeInterval, newTimestamp: TimeInterval, status: StatementStatus) {
-        print("update")
-    }
-    
-    //MARK: ChatHandler
-    
+extension ViewController: ChatHandler {
     func startChat(_ chatInfo: [AnyHashable : Any]!) {
         self.navigationController?.viewControllers.last?.navigationItem.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(ViewController.stopLiveChat(sender:))), animated: true)
         self.navigationController?.viewControllers.last?.title = "You're talking with Nisso"
@@ -133,7 +96,20 @@ class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegat
         self.delegate.presentStatement(remote)
     }
     
-    //MARK: NRChatControllerDelegate
+    func handleClickedLink(_ link: URL!) {
+        
+    }
+    
+    func handleEvent(_ eventParams: [AnyHashable : Any]!) {
+        
+    }
+}
+
+/************************************************************/
+// MARK: - NRChatControllerDelegate
+/************************************************************/
+
+extension ViewController: NRChatControllerDelegate {
     
     func shouldHandleFormPresentation(_ formController: UIViewController!) -> Bool {
         return true
@@ -166,3 +142,40 @@ class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegat
     }
 }
 
+/************************************************************/
+// MARK: - HistoryProvider
+/************************************************************/
+
+extension ViewController: HistoryProvider {
+    func fetch(_ from: Int, handler: (([Any]?) -> Void)!) {
+        print("fetch")
+        
+        var elements: Array<StorableChatElement>!
+        
+        if(DBManager.sharedInstance.getDataFromDB().count > 0) {
+            let items = DBManager.sharedInstance.getDataFromDB()
+            //  let elements = historyElements.values.first
+            
+            elements = Array(items)
+        }
+        handler(elements)
+    }
+    
+    func store(_ item: StorableChatElement) {
+        print("store")
+        
+        let element = Item(item: item)
+        element.ID = Int(DBManager.sharedInstance.getDataFromDB().count)
+        DBManager.sharedInstance.addData(object: element)
+    }
+    
+    func remove(_ timestampId: TimeInterval) {
+        print("remove")
+        
+        DBManager.sharedInstance.deleteAllDatabase()
+    }
+    
+    func update(_ timestampId: TimeInterval, newTimestamp: TimeInterval, status: StatementStatus) {
+        print("update")
+    }
+}

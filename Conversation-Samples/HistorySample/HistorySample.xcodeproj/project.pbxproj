@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		001C13C4C76549B6067168B2 /* Pods_HistorySample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 730BC8C13876FC2780D0AED0 /* Pods_HistorySample.framework */; };
+		AF30F40F212AC34300B0D3B9 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30F40E212AC34300B0D3B9 /* ReachabilityManager.swift */; };
+		AF30F416212AC74800B0D3B9 /* AccountParamsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF30F415212AC74800B0D3B9 /* AccountParamsHelper.swift */; };
+		AF30F419212ACB0200B0D3B9 /* AccountParams.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF30F418212ACB0200B0D3B9 /* AccountParams.plist */; };
 		AF93D213211B1AF800D8AC49 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF93D212211B1AF800D8AC49 /* DBManager.swift */; };
 		AF9862A320CFEA9B00501472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9862A220CFEA9B00501472 /* AppDelegate.swift */; };
 		AF9862A520CFEA9B00501472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9862A420CFEA9B00501472 /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 		730BC8C13876FC2780D0AED0 /* Pods_HistorySample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HistorySample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD9336FFF2210F772308A09 /* Pods-HistorySample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HistorySample.release.xcconfig"; path = "Pods/Target Support Files/Pods-HistorySample/Pods-HistorySample.release.xcconfig"; sourceTree = "<group>"; };
 		A2579D1DAB7B978B68BD2744 /* Pods-HistorySample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HistorySample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HistorySample/Pods-HistorySample.debug.xcconfig"; sourceTree = "<group>"; };
+		AF30F40E212AC34300B0D3B9 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		AF30F415212AC74800B0D3B9 /* AccountParamsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountParamsHelper.swift; sourceTree = "<group>"; };
+		AF30F418212ACB0200B0D3B9 /* AccountParams.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AccountParams.plist; sourceTree = "<group>"; };
 		AF93D212211B1AF800D8AC49 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		AF98629F20CFEA9B00501472 /* HistorySample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HistorySample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF9862A220CFEA9B00501472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +60,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AF30F410212AC35500B0D3B9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AF30F40E212AC34300B0D3B9 /* ReachabilityManager.swift */,
+				AF93D212211B1AF800D8AC49 /* DBManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		AF30F41A212AD63F00B0D3B9 /* LocalAccountParams */ = {
+			isa = PBXGroup;
+			children = (
+				AF30F415212AC74800B0D3B9 /* AccountParamsHelper.swift */,
+				AF30F418212ACB0200B0D3B9 /* AccountParams.plist */,
+			);
+			path = LocalAccountParams;
+			sourceTree = "<group>";
+		};
 		AF98629620CFEA9B00501472 = {
 			isa = PBXGroup;
 			children = (
@@ -76,7 +100,8 @@
 		AF9862A120CFEA9B00501472 /* HistorySample */ = {
 			isa = PBXGroup;
 			children = (
-				AF93D212211B1AF800D8AC49 /* DBManager.swift */,
+				AF30F41A212AD63F00B0D3B9 /* LocalAccountParams */,
+				AF30F410212AC35500B0D3B9 /* Managers */,
 				AFD520D7211B1B8700B7C448 /* Item.swift */,
 				AF9862A220CFEA9B00501472 /* AppDelegate.swift */,
 				AF9862A420CFEA9B00501472 /* ViewController.swift */,
@@ -160,6 +185,7 @@
 			files = (
 				AF9862AD20CFEA9B00501472 /* LaunchScreen.storyboard in Resources */,
 				AF9862AA20CFEA9B00501472 /* Assets.xcassets in Resources */,
+				AF30F419212ACB0200B0D3B9 /* AccountParams.plist in Resources */,
 				AF9862A820CFEA9B00501472 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +247,8 @@
 				AFD520D8211B1B8700B7C448 /* Item.swift in Sources */,
 				AF9862A520CFEA9B00501472 /* ViewController.swift in Sources */,
 				AF93D213211B1AF800D8AC49 /* DBManager.swift in Sources */,
+				AF30F40F212AC34300B0D3B9 /* ReachabilityManager.swift in Sources */,
+				AF30F416212AC74800B0D3B9 /* AccountParamsHelper.swift in Sources */,
 				AF9862A320CFEA9B00501472 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
