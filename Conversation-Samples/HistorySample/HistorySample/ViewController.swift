@@ -52,7 +52,7 @@ class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegat
         accountParams.apiKey = "2fdce18f-4e7d-4517-8f72-4db07c755939"
         accountParams.nanorepContext = ["UserRole": "Branch_Banking_NatWest"]
         accountParams.perform(Selector.init("setServer:"), with: "eu1-4")
-        self.chatController = NRChatController(account: self.accountParams)
+        self.chatController = NRChatController(account: accountParams)
         config.chatContentURL = URL.init(string:"http://10.228.220.38:8000/Repos/Web/ConversationalWebView/v3/view-rbs.html")
         config.withNavBar = true
         // TODO: under config pass id
@@ -125,12 +125,16 @@ class ViewController: UIViewController, HistoryProvider, NRChatControllerDelegat
         
     }
     
-    func postStatement(_ statement: ChatElement!) {
+    func postStatement(_ statement: StorableChatElement!) {
         self.delegate.presentStatement(statement)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.delegate.update(StatementStatus.Error, element: statement)
+        }
         let remote = RemoteChatElement(type: .RemoteElement, content: "Hello from Live Agent")
         remote?.design = ChatElementDesignCustomIncoming
         remote?.agentType = .Live
-        self.delegate.presentStatement(remote)
+        
+        (self.delegate as! NSObject).perform(#selector(ChatHandlerDelegate.presentStatement(_:)), with: remote, afterDelay: 4)
     }
     
     //MARK: NRChatControllerDelegate
