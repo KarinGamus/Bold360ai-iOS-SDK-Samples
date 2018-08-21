@@ -88,12 +88,16 @@ extension ViewController: ChatHandler {
         
     }
     
-    func postStatement(_ statement: ChatElement!) {
+    func postStatement(_ statement: StorableChatElement!) {
         self.delegate.presentStatement(statement)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.delegate.update(StatementStatus.Error, element: statement)
+        }
         let remote = RemoteChatElement(type: .RemoteElement, content: "Hello from Live Agent")
         remote?.design = ChatElementDesignCustomIncoming
         remote?.agentType = .Live
-        self.delegate.presentStatement(remote)
+        
+        (self.delegate as! NSObject).perform(#selector(ChatHandlerDelegate.presentStatement(_:)), with: remote, afterDelay: 4)
     }
     
     func handleClickedLink(_ link: URL!) {
