@@ -21,8 +21,7 @@ class ViewController: UIViewController {
     var chatControllerDelegate: NRChatControllerDelegate!
     var chatHandlerProvider: ChatHandlerProvider!
     var historyElements = [String: Array<StorableChatElement>]()
-    let historyStatementsDB = DBManager()
-    let erroredStatementsDB = DBManager()
+    let historyStatementsDB = DBManager.sharedInstance
     
     private var accountParams: AccountParams?
     var chatController: NRChatController!
@@ -106,13 +105,21 @@ extension ViewController {
             print("Warning: network reachable")
 
             DispatchQueue.main.async {
-                if(self.erroredStatementsDB.getDataFromDB().count > 0) {
-                    let items = self.erroredStatementsDB.getDataFromDB()
+                if(self.historyStatementsDB.getDataFromDB().count > 0) {
+                    let items = self.historyStatementsDB.getDataFromDB()
+                    var elements = Array<StorableChatElement>()
+                    var containsError = false
                     
-                    let elements = Array(items)
+                    for item in items {
+                        if (item.status == StatementStatus.Error) {
+                            elements.append(item)
+                            containsError = true
+                        }
+                    }
                     
-                    self.chatController.repostStatemennts(elements)
-                    self.erroredStatementsDB.deleteAllDatabase()
+                    if containsError {
+                        self.chatController.repostStatemennts(elements)
+                    }
                 }
             }
         }
@@ -175,7 +182,6 @@ extension ViewController: NRChatControllerDelegate {
         DispatchQueue.main.async {
             let element = Item(item: statement)
             element.ID = statement.elementId.intValue
-            self.erroredStatementsDB.addData(object: element)
             self.historyStatementsDB.addData(object: element)
         }
     }

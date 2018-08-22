@@ -11,8 +11,9 @@ import NanorepUI
 class DBManager {
     
     private var database:Realm
+    static let sharedInstance = DBManager()
     
-    init() {
+    private init() {
         database = try! Realm()
     }
     
@@ -29,8 +30,16 @@ class DBManager {
     }
     
     func deleteAllDatabase()  {
-        try! database.write {
-            database.deleteAll()
+//        try! database.write {
+//            database.deleteAll()
+//        }
+        
+        do {
+            try database.write({
+                database.deleteAll()
+            })
+        } catch  {
+            print("error")
         }
     }
     
