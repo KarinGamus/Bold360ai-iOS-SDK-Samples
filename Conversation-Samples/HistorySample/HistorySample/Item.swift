@@ -9,7 +9,8 @@ import RealmSwift
 import NanorepUI
 
 class Item: Object, StorableChatElement {
-   
+    var elementId: NSNumber! = 0
+    
     convenience init(item: StorableChatElement) {
         self.init()
         self.storageKey = item.storageKey
@@ -24,7 +25,7 @@ class Item: Object, StorableChatElement {
     
     var agentType: AgentType = AgentType.Bot
     
-    var status: StatementStatus = StatementStatus.Pending
+    var status: StatementStatus = StatementStatus(rawValue: 1)!
     
     var type: ChatElementType = ChatElementType.LocalElement
     

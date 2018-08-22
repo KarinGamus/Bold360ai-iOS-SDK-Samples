@@ -13,23 +13,58 @@ import RealmSwift
 /************************************************************/
 
 class ViewController: UIViewController {
-    var delegate: ChatHandlerDelegate!
+    /************************************************************/
+    // MARK: - Properties
+    /************************************************************/
     
+    var delegate: ChatHandlerDelegate!
     var chatControllerDelegate: NRChatControllerDelegate!
     var chatHandlerProvider: ChatHandlerProvider!
     var historyElements = [String: Array<StorableChatElement>]()
+    let historyStatementsDB = DBManager()
+    let erroredStatementsDB = DBManager()
     
     private var accountParams: AccountParams?
     var chatController: NRChatController!
+    // Every bot controller that is created should own Reachability instance
+    let reachability = Reachability()
+    
+    /************************************************************/
+    // MARK: - Functions
+    /************************************************************/
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addReachabilityObserver()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupAccountParams() -> AccountParams {
+        let params = AccountParams()
+        let localAccountParams = AccountParamsHelper.getLocalParams()
+        params.account = localAccountParams[AccountParamsHelper.accountParamsKeys.Account]
+        params.knowledgeBase = localAccountParams[AccountParamsHelper.accountParamsKeys.KnowledgeBase]
+        params.apiKey = localAccountParams[AccountParamsHelper.accountParamsKeys.ApiKey]
+        params.nanorepContext = ["UserRole": AccountParamsHelper.accountParamsKeys.NanorepContext]
+        params.perform(Selector.init(("setServer:")), with: localAccountParams[AccountParamsHelper.accountParamsKeys.Server])
+        
+        return params
+    }
+    
+    @objc func stopLiveChat(sender: UIBarButtonItem) {
+        self.navigationController?.viewControllers.last?.navigationItem.setRightBarButton(nil, animated: true)
+        self.navigationController?.viewControllers.last?.title = "Bye .."
+        self.navigationController?.viewControllers.last?.perform(#selector(setter: UIViewController.title), with: nil, afterDelay: 2)
+        self.chatHandlerProvider.didEndChat(self)
+    }
+    
+    /************************************************************/
+    // MARK: - Actions
+    /************************************************************/
     
     @IBAction func loadNanorep(_ sender: UIButton) {
         let config: NRBotConfiguration = NRBotConfiguration()
@@ -47,32 +82,47 @@ class ViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        
-    }
-    
-    func setupAccountParams() -> AccountParams {
-        let params = AccountParams()
-        let localAccountParams = AccountParamsHelper.getLocalParams()
-        params.account = localAccountParams[AccountParamsHelper.accountParamsKeys.Account]
-        params.knowledgeBase = localAccountParams[AccountParamsHelper.accountParamsKeys.KnowledgeBase]
-        params.apiKey = localAccountParams[AccountParamsHelper.accountParamsKeys.ApiKey]
-        params.nanorepContext = ["UserRole": AccountParamsHelper.accountParamsKeys.NanorepContext]
-        params.perform(Selector.init(("setServer:")), with: localAccountParams[AccountParamsHelper.accountParamsKeys.Server])
-        
-        return params
     }
     
     @IBAction func deleteHistory(_ sender: Any) {
-        DBManager.sharedInstance.deleteAllDatabase()
-    }
-    
-    @objc func stopLiveChat(sender: UIBarButtonItem) {
-        self.navigationController?.viewControllers.last?.navigationItem.setRightBarButton(nil, animated: true)
-        self.navigationController?.viewControllers.last?.title = "Bye .."
-        self.navigationController?.viewControllers.last?.perform(#selector(setter: UIViewController.title), with: nil, afterDelay: 2)
-        self.chatHandlerProvider.didEndChat(self)
+        self.historyStatementsDB.deleteAllDatabase()
     }
 }
+
+/************************************************************/
+// MARK: - Reachability & Application States Handling
+/************************************************************/
+
+extension ViewController {
+    // Reachability Handling
+    private func addReachabilityObserver() -> Void {
+        guard let reachability = self.reachability else { return }
+        reachability.startNotifier()
+        
+        reachability.onUnreachable = { reachability in
+            print("Warning: network unreachable")
+        }
+        reachability.onReachable = { [unowned self] reachability in
+            print("Warning: network reachable")
+
+            DispatchQueue.main.async {
+                if(self.erroredStatementsDB.getDataFromDB().count > 0) {
+                    let items = self.erroredStatementsDB.getDataFromDB()
+                    
+                    let elements = Array(items)
+                    
+                    self.chatController.repostStatemennts(elements)
+                    self.erroredStatementsDB.deleteAllDatabase()
+                }
+            }
+        }
+    }
+    
+    private func removeReachabilityObserver() -> Void {
+        self.reachability?.stopNotifier()
+    }
+}
+
 
 /************************************************************/
 // MARK: - ChatHandler
@@ -119,8 +169,15 @@ extension ViewController: NRChatControllerDelegate {
         return true
     }
     
-    func didFailWithError(_ error: Error!) {
+    func statement(_ statement: StorableChatElement!, didFailWithError error: Error!) {
+        print("error: \(error)")
         
+        DispatchQueue.main.async {
+            let element = Item(item: statement)
+            element.ID = statement.elementId.intValue
+            self.erroredStatementsDB.addData(object: element)
+            self.historyStatementsDB.addData(object: element)
+        }
     }
     
     func didClickLink(_ url: String!) {
@@ -153,30 +210,37 @@ extension ViewController: NRChatControllerDelegate {
 extension ViewController: HistoryProvider {
     func fetch(_ from: Int, handler: (([Any]?) -> Void)!) {
         print("fetch")
-        
-        var elements: Array<StorableChatElement>!
-        
-        if(DBManager.sharedInstance.getDataFromDB().count > 0) {
-            let items = DBManager.sharedInstance.getDataFromDB()
-            //  let elements = historyElements.values.first
+
+        DispatchQueue.main.async {
+            var elements: Array<StorableChatElement>!
             
-            elements = Array(items)
+            if(self.historyStatementsDB.getDataFromDB().count > 0) {
+                let items = self.historyStatementsDB.getDataFromDB()
+                //  let elements = historyElements.values.first
+                
+                elements = Array(items)
+            }
+            
+            handler(elements)
         }
-        handler(elements)
     }
     
     func store(_ item: StorableChatElement) {
         print("store")
         
-        let element = Item(item: item)
-        element.ID = Int(DBManager.sharedInstance.getDataFromDB().count)
-        DBManager.sharedInstance.addData(object: element)
+        DispatchQueue.main.async {
+            let element = Item(item: item)
+            element.ID = item.elementId.intValue
+            self.historyStatementsDB.addData(object: element)
+        }
     }
     
     func remove(_ timestampId: TimeInterval) {
         print("remove")
         
-        DBManager.sharedInstance.deleteAllDatabase()
+        DispatchQueue.main.async {
+            self.historyStatementsDB.deleteAllDatabase()
+        }
     }
     
     func update(_ timestampId: TimeInterval, newTimestamp: TimeInterval, status: StatementStatus) {

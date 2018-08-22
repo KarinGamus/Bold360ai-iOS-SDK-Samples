@@ -11,9 +11,8 @@ import NanorepUI
 class DBManager {
     
     private var database:Realm
-    static let sharedInstance = DBManager()
     
-    private init() {
+    init() {
         database = try! Realm()
     }
     
