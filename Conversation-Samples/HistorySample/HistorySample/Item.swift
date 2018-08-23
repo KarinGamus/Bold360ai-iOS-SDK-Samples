@@ -9,10 +9,11 @@ import RealmSwift
 import NanorepUI
 
 class Item: Object, StorableChatElement {
-    var elementId: NSNumber! = 0
+    var elementId: NSNumber! = 0.0
     
     convenience init(item: StorableChatElement) {
         self.init()
+        self.elementId = item.elementId
         self.storageKey = item.storageKey
         self.agentType = item.agentType
         self.status = item.status
