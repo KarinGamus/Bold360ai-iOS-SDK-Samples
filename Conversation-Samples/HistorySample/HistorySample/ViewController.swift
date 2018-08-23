@@ -112,6 +112,8 @@ extension ViewController {
                     for item in items {
                         print("addReachabilityObserver:: status\(item.status.rawValue)")
                         if (item.status.rawValue == StatementStatus.Error.rawValue) {
+                            print("item.status: \(item.status)")
+                            print("item.elementId: \(item.ID)")
                             elements.append(item)
                         }
                     }
@@ -128,7 +130,6 @@ extension ViewController {
         self.reachability?.stopNotifier()
     }
 }
-
 
 /************************************************************/
 // MARK: - ChatHandler
@@ -180,7 +181,6 @@ extension ViewController: NRChatControllerDelegate {
         print("statement:: status \(statement.status.rawValue)")
         DispatchQueue.main.async {
             let element = Item(item: statement)
-            element.ID = statement.elementId.intValue
             self.historyStatementsDB.addData(object: element)
         }
     }
@@ -220,9 +220,7 @@ extension ViewController: HistoryProvider {
             var elements: Array<StorableChatElement>!
             
             if(self.historyStatementsDB.getDataFromDB().count > 0) {
-                let items = self.historyStatementsDB.getDataFromDB()
-                //  let elements = historyElements.values.first
-                
+                let items = self.historyStatementsDB.getDataFromDB()                
                 elements = Array(items)
             }
             
