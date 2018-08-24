@@ -177,6 +177,9 @@ extension ViewController: NRChatControllerDelegate {
     }
     
     func statement(_ statement: StorableChatElement!, didFailWithError error: Error!) {
+        guard let _ = statement else {
+            return
+        }
         print("error: \(error)")
         print("statement:: status \(statement.status.rawValue)")
         DispatchQueue.main.async {
