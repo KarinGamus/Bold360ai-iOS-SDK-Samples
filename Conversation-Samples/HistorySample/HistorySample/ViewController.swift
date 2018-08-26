@@ -107,18 +107,19 @@ extension ViewController {
             DispatchQueue.main.async {
                 if(self.historyStatementsDB.getDataFromDB().count > 0) {
                     let items = self.historyStatementsDB.getDataFromDB()
-                    var elements = Array<StorableChatElement>()
-                    var containsError = false
+                    var elements = [StorableChatElement]()
                     
                     for item in items {
-                        if (item.status == StatementStatus.Error) {
+                        print("addReachabilityObserver:: status\(item.status.rawValue)")
+                        if (item.status.rawValue == StatementStatus.Error.rawValue) {
+                            print("item.status: \(item.status)")
+                            print("item.elementId: \(item.ID)")
                             elements.append(item)
-                            containsError = true
                         }
                     }
                     
-                    if containsError {
-                        self.chatController.repostStatemennts(elements)
+                    if elements.count > 0 {
+                        self.chatController.repostStatements(elements)
                     }
                 }
             }
@@ -129,7 +130,6 @@ extension ViewController {
         self.reachability?.stopNotifier()
     }
 }
-
 
 /************************************************************/
 // MARK: - ChatHandler
@@ -177,11 +177,13 @@ extension ViewController: NRChatControllerDelegate {
     }
     
     func statement(_ statement: StorableChatElement!, didFailWithError error: Error!) {
+        guard let _ = statement else {
+            return
+        }
         print("error: \(error)")
-        
+        print("statement:: status \(statement.status.rawValue)")
         DispatchQueue.main.async {
             let element = Item(item: statement)
-            element.ID = statement.elementId.intValue
             self.historyStatementsDB.addData(object: element)
         }
     }
@@ -221,9 +223,7 @@ extension ViewController: HistoryProvider {
             var elements: Array<StorableChatElement>!
             
             if(self.historyStatementsDB.getDataFromDB().count > 0) {
-                let items = self.historyStatementsDB.getDataFromDB()
-                //  let elements = historyElements.values.first
-                
+                let items = self.historyStatementsDB.getDataFromDB()                
                 elements = Array(items)
             }
             
@@ -235,6 +235,7 @@ extension ViewController: HistoryProvider {
         print("store")
         
         DispatchQueue.main.async {
+            print("store:: status \(item.status.rawValue)")
             let element = Item(item: item)
             element.ID = item.elementId.intValue
             self.historyStatementsDB.addData(object: element)
