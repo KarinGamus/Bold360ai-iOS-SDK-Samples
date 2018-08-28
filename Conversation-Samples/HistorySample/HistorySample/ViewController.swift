@@ -76,6 +76,7 @@ class ViewController: UIViewController {
         self.chatController.handOver = self
         self.chatController.uiConfiguration = config
         self.chatController.historyProvider = self
+        self.chatController.speechReconitionDelegate = self
         self.chatController.initialize = { controller, configuration, error in
             if let vc = controller {
                 self.navigationController?.pushViewController(vc, animated: true)
@@ -119,7 +120,7 @@ extension ViewController {
                     }
                     
                     if elements.count > 0 {
-                        self.chatController.repostStatements(elements)
+                        self.chatController?.repostStatements(elements)
                     }
                 }
             }
@@ -148,7 +149,7 @@ extension ViewController: ChatHandler {
     func postStatement(_ statement: StorableChatElement!) {
         self.delegate.presentStatement(statement)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.delegate.update(StatementStatus.Error, element: statement)
+            self.delegate.update(StatementStatus.OK, element: statement)
         }
         let remote = RemoteChatElement(type: .RemoteElement, content: "Hello from Live Agent")
         remote?.design = ChatElementDesignCustomIncoming
@@ -158,7 +159,7 @@ extension ViewController: ChatHandler {
     }
     
     func handleClickedLink(_ link: URL!) {
-        
+        print(link.absoluteString)
     }
     
     func handleEvent(_ eventParams: [AnyHashable : Any]!) {
@@ -173,7 +174,7 @@ extension ViewController: ChatHandler {
 extension ViewController: NRChatControllerDelegate {
     
     func shouldHandleFormPresentation(_ formController: UIViewController!) -> Bool {
-        return true
+        return false
     }
     
     func statement(_ statement: StorableChatElement!, didFailWithError error: Error!) {
@@ -189,7 +190,7 @@ extension ViewController: NRChatControllerDelegate {
     }
     
     func didClickLink(_ url: String!) {
-        if let link = URL(string: url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlPathAllowed)!) {
+        if let link = URL(string: url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) {
             
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(link, options: [:], completionHandler: { (success) in
@@ -252,5 +253,34 @@ extension ViewController: HistoryProvider {
     
     func update(_ timestampId: TimeInterval, newTimestamp: TimeInterval, status: StatementStatus) {
         print("update")
+    }
+}
+
+extension ViewController: SpeechReconitionDelegate {
+    func speechRecognitionStatus(_ status: NRSpeechRecognizerAuthorizationStatus) {
+        let alert = UIAlertController(title: "Speech Recognition Error", message: "Please enable speech recognition in Settings", preferredStyle: .alert)
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+        }
+        alert.addAction(settingsAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        switch status {
+        case .recordingDenied:
+            alert.title = "Audio Recording Error"
+            alert.message = "Please enable audio recording"
+            self.present(alert, animated: true, completion: nil)
+        case .denied:
+            self.present(alert, animated: true, completion: nil)
+        default:
+            break
+        }
     }
 }
