@@ -4,7 +4,7 @@
 
 ## Installation Instructions
 
-To get latest beta frameworks please go to [TraditionalInstallationSample](https://github.com/bold360ai/Bold360ai-iOS-SDK-Samples/tree/preproduction/TraditionalInstallationSample)
+To get latest beta frameworks please go to [Traditional Installation Sample](https://github.com/bold360ai/Bold360ai-iOS-SDK-Samples/tree/preproduction/TraditionalInstallationSample)
 
 > This sample contains latest frameworks you should use.
 
