@@ -1,22 +1,29 @@
 [![CI Status](https://api.travis-ci.org/bold360ai/Bold360ai-iOS-SDK-Samples.svg?branch=master)](https://travis-ci.org/bold360ai/Bold360ai-iOS-SDK-Samples)
 
-## Bold360ai iOS SDK Samples
-
-This project hosts samples for the [Bold360AI iOS SDK](https://github.com/nanorepsdk/Bold360AI-iOS-SDK)
-
-**Every sample contains 2 targets:**
-1. Objc Sample
-2. Swift Sample
-
-## Requirements
-
-* Xcode7 or newer
-* iOS 9.0+
-* CocoaPods
+> **Note: This is a beta version. A new official version of the bold360ai SDK will be available very soon.** 
 
 ## Installation Instructions
 
-To run the samples and add the SDK use the instructions provided [here](https://github.com/bold360ai/bold360ai_ios_sdk/wiki/CocoapodsInstallation).
+To get latest beta frameworks please go to [TraditionalInstallationSample](https://github.com/bold360ai/Bold360ai-iOS-SDK-Samples/tree/preproduction/TraditionalInstallationSample)
+
+> This sample contains latest frameworks you should use.
+
+## Setup Conversation SDK
+
+To run the samples and add the SDK use the instructions provided [here](https://github.com/bold360ai/bold360ai_ios_sdk/wiki/HowToUseSDK).
+
+## Setup Speech Recognition
+
+To setup speech recognition use the instructions provided [here](https://github.com/bold360ai/bold360ai_ios_sdk/wiki/SpeechRecognition)
+
+## Support Offline Mode (History)
+
+To setup History Service use the instructions provided [here](https://github.com/bold360ai/bold360ai_ios_sdk/wiki/Conversation-History-Service)
+
+## bold360ai iOS SDK Samples
+
+>Note: The sample you shpuld be focused on this **beta version** is [Conversation Sample](https://github.com/bold360ai/Bold360ai-iOS-SDK-Samples/tree/develop/Conversation-Samples/HistorySample)
+
 
 ## License and Copyright Information
 All code in this project is released under the [Apache License 2.0](http://www.apache.org/licenses/) unless a different license for a particular library is specified in the applicable library path.   
