@@ -1,10 +1,8 @@
-//
-//  AppDelegate.swift
-//  TraditionalInstallationSample
-//
-//  Created by Eliza Koren on 5/29/18.
-//  Copyright © 2018 bold360ai. All rights reserved.
-//
+// ===================================================================================================
+// Copyright © 2018 nanorep.
+// NanorepUI SDK.
+// All rights reserved.
+// ===================================================================================================
 
 import UIKit
 
