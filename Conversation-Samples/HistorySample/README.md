@@ -1,6 +1,6 @@
 # History Setup Sample
 
->Note: To make this sample run you must set all relevant params on `AccountParams.plist` file which located under `LocalAccountParams` file when running the project.
+>Note: To make this sample run you must set all relevant params on `AccountParams.plist` file which located under `LocalAccountParams` file when openning the project.
 
 ## Purpose
 
