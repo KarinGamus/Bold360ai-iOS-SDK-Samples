@@ -22,7 +22,7 @@ To setup History Service use the instructions provided [here](https://github.com
 
 ## bold360ai iOS SDK Samples
 
->Note: The sample you shpuld be focused on this **beta version** is [Conversation Sample](https://github.com/bold360ai/Bold360ai-iOS-SDK-Samples/tree/develop/Conversation-Samples/HistorySample)
+>Note: The sample you should be focused on this **beta version** is [Conversation Sample](https://github.com/bold360ai/Bold360ai-iOS-SDK-Samples/tree/develop/Conversation-Samples/HistorySample)
 
 
 ## License and Copyright Information
