@@ -1,6 +1,6 @@
 [![CI Status](https://api.travis-ci.org/bold360ai/Bold360ai-iOS-SDK-Samples.svg?branch=master)](https://travis-ci.org/bold360ai/Bold360ai-iOS-SDK-Samples)
 
-> **Note: This is a beta version. A new official version of the bold360ai SDK will be available very soon, under [bold360ai official releases](https://github.com/bold360ai/bold360ai_ios_sdk/releases) .** 
+> **Note: This is a beta version. A new official version of the bold360ai SDK will be available very soon, under [bold360ai official releases](https://github.com/bold360ai/bold360ai_ios_sdk/releases).** 
 
 ## Installation Instructions
 
